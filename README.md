@@ -1,2 +1,2 @@
 # PowerShell
-#Just a collection of snippets I've either written or cobbled together.
+#Just a collection of snippets I've written.
