@@ -8,9 +8,9 @@ $comp = $($comp).ToUpper()
 
 $path = "\\$($comp)\c`$\Program Files (x86)\MegaRAID Storage Manager\MegaMonitor\config-current.xml"
 
-$sender = "$comp.sender.com"
+$sender = "$comp@sender.com"
 $servername = "mailserver.sender.com" 
-$recipient = "recipient.sender.com"
+$recipient = "recipient@sender.com"
 
 $MSMXML = ( Select-Xml -Path $path -XPath / ).Node
 
