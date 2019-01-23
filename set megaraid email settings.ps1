@@ -2,12 +2,14 @@
 
 $hosts = "ServerName"  # - example.  Can accept array of computer names like 'Get-SCVMHost | select ComputerName'
 
-foreach ($comp in $hosts) {
+foreach ($comp in $hosts) {  # Master For
 	
     $comp = $($comp).ToUpper()
 	
     $path = "\\$($comp)\c`$\Program Files (x86)\MegaRAID Storage Manager\MegaMonitor\config-current.xml"
 	
+	if (Test-Path $path) {  # Test-Path If
+
     $sender = "$comp@myfrhi.com"
     $servername = "torsmtp.myfairmont.com"
     $recipient = "fhr.dcalert.dl@frhi.com"
@@ -40,6 +42,13 @@ foreach ($comp in $hosts) {
 
     $comp
     write-output "Sender: "$MSMXML_Verify.'monitor-config'.actions.email.sender""
-    write-output "Recipient: "$MSMXML_Verify.'monitor-config'.actions.email.'email-target'""
+	write-output "Recipient: "$MSMXML_Verify.'monitor-config'.actions.email.'email-target'""
+	Write-Output "IP address: "$MSMXML_Verify.'monitor-config'.actions.email.nic""
+	Write-Output "Mail Server: "$MSMXML_Verify.'monitor-config'.actions.email.servername""
+	Write-Output "Server Authentication: "$MSMXML_Verify.'monitor-config'.actions.email.'authentication-type'""
+	
+	} # End Test-Path If
 
-}
+	else {Write-Output "MegaRAID Storage Manager not installed on $comp"}
+
+} # End Master For
