@@ -1,6 +1,6 @@
 #Configures the MegaRAID Storage Manager on specified servers to send email for Critical & fatal alerts.
 
-$hosts = "ServerName"  # - example.  Can accept array of computer names like 'Get-SCVMHost | select ComputerName'
+$hosts = "ServerName"  # - example.  Can accept array of computer names like 'Get-SCVMHost | Select-Object -ExpandProperty ComputerName'
 
 foreach ($comp in $hosts) {  # Master For
 	
