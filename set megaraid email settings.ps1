@@ -1,16 +1,14 @@
 #Configures the MegaRAID Storage Manager on specified servers to send email for Critical & fatal alerts.
 
-$hosts = "ServerName" # Get-SCVMHost | Select-Object -ExpandProperty ComputerName   # - example.  Can accept array of computer names like 'Get-SCVMHost | Select-Object ComputerName'
+$hosts = Get-Content C:\users\lgaudreau\Documents\temp-servers.txt # Get-SCVMHost | Select-Object -ExpandProperty ComputerName   # - example.  Can accept array of computer names like 'Get-SCVMHost | Select-Object ComputerName'
 
-foreach ($comp in $hosts) {
-    # Master For
+foreach ($comp in $hosts) {  # Master For
 	
     $comp = $($comp).ToUpper()
 	
     $path = "\\$($comp)\c`$\Program Files (x86)\MegaRAID Storage Manager\MegaMonitor\config-current.xml"
 	
-    if (Test-Path $path) {
-        # Test-Path If
+    if (Test-Path $path) { # Test-Path If
 
         $sender = "$comp@myfrhi.com"
         $servername = "torsmtp.myfairmont.com"
