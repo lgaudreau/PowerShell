@@ -1,2 +1,1 @@
-PowerShell
-Just a collection of snippets I've written.
+A small collection of PowerShell snippets I've written.
