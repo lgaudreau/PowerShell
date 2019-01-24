@@ -10,9 +10,9 @@ foreach ($comp in $hosts) {  # Master For
 	
     if (Test-Path $path) { # Test-Path If
 
-        $sender = "$comp@myfrhi.com"
-        $servername = "torsmtp.myfairmont.com"
-        $recipient = "fhr.dcalert.dl@frhi.com"
+        $sender = "$comp@mail.com"
+        $servername = "smtp.mail.com"
+        $recipient = "hardwarwealert@mail.com"
 
         [string]$ipaddress = (Test-Connection $comp -Count 2).IPV4Address.IPAddressToString[0]
 	
